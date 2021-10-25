@@ -15,6 +15,7 @@
   "author": "Adebola Akomolafe",
   "license": "ISC",
   "dependencies": {
+    "gulp": "^4.0.2",
     "minify": "^8.0.3",
     "sass": "^1.43.3",
     "scss": "^0.2.4",
