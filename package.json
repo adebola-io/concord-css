@@ -1,0 +1,23 @@
+{
+  "name": "streamline",
+  "version": "1.0.0",
+  "description": "A CSS and Javascript framework for custom sematic HTML and UI design.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "CSS",
+    "Framework",
+    "Javascript",
+    "SCSS"
+  ],
+  "author": "Adebola Akomolafe",
+  "license": "ISC",
+  "dependencies": {
+    "minify": "^8.0.3",
+    "sass": "^1.43.3",
+    "scss": "^0.2.4",
+    "uglify-js": "^3.14.2"
+  }
+}
