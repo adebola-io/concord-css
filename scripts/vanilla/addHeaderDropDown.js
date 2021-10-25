@@ -1,4 +1,4 @@
-function addDropDown() {
+export function addDropDown() {
         if (document.querySelector("page-header") && document.querySelector("page-header").querySelector(".drop-down-item")){
                 document.querySelectorAll("page-header").forEach(streamlineHeader=>{
                     let color = window.getComputedStyle(streamlineHeader, null).getPropertyValue('color'),

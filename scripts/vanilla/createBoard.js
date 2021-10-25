@@ -1,4 +1,4 @@
- function createBoardElement(){
+export function createBoardElement(){
         if (document.querySelector("page-board")){
             document.querySelectorAll("page-board").forEach((streamlineBoard)=>{
                 if (streamlineBoard.getAttribute('height')) {

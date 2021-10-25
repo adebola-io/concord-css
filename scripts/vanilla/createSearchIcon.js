@@ -1,5 +1,5 @@
 // Set the usability of HTML search-icon attribrutes
-    function createSearchIcon() {
+    export function createSearchIcon() {
       if (document.querySelector('search-icon')){
           document.querySelectorAll('search-icon').forEach(searchIcon=>{
             let iconColor = searchIcon.getAttribute('color');

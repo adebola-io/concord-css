@@ -1,5 +1,5 @@
 //Set the usability of CSS class 'vibrate'
-    function addVibration () {
+    export function addVibration () {
         if (document.querySelector('.hover-vibrate')){
             document.querySelectorAll('.hover-vibrate').forEach((element)=>{
                 element.animate(
