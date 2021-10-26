@@ -63,7 +63,7 @@
   display: none;
 }
 
-.flex, .fstretch-y, .spce-between-x, .fcol, page-footer, .fey, .fe, .fex, .fcy, page-header, .fc, page-header .header-button, page-popup-container, .fcx, .frow-rvrse, .frow, .fwrap {
+.flex, .fstretch-y, .spce-between-x, .fcol, page-footer, .fey, .fe, .fex, .fcy, page-header, .fc, page-popup-container, .fcx, .frow-rvrse, .frow, .fwrap {
   display: flex;
 }
 
@@ -79,11 +79,11 @@
   flex-direction: row-reverse;
 }
 
-.fcx, .fc, page-header .header-button, page-popup-container {
+.fcx, .fc, page-popup-container {
   justify-content: center;
 }
 
-.fcy, page-header, page-footer, .fc, page-header .header-button, page-popup-container {
+.fcy, page-header, page-footer, .fc, page-popup-container {
   align-items: center;
 }
 
@@ -442,7 +442,7 @@
   margin-bottom: 1%;
 }
 
-.px-1 {
+.px-1, page-header .header-button {
   padding-left: 1%;
   padding-right: 1%;
 }
@@ -2648,7 +2648,7 @@
   height: initial;
 }
 
-.w-fit-content, page-header .header-button {
+.w-fit-content {
   width: fit-content;
 }
 
@@ -2784,7 +2784,8 @@ page-header {
 page-header .logo-image {
   height: 85%;
 }
-page-header .logo-text {
+page-header .logo-text,
+page-header .logo-name {
   font-size: 15pt;
   margin-left: 1%;
   margin-right: 2%;
@@ -2853,7 +2854,11 @@ page-header .drop-down-item {
   color: inherit;
 }
 page-header .header-button {
-  height: 35px;
+  height: 30px;
+  display: flex;
+  width: fit-content;
+  justify-content: center;
+  align-items: center;
   flex-wrap: nowrap;
 }
 
@@ -3125,6 +3130,11 @@ form > input.center-search:focus {
   page-header .header-drop-btn,
 page-header .header-drop-down {
     display: flex;
+  }
+  page-header .header-button {
+    height: 36px;
+    padding-left: 2%;
+    padding-right: 2%;
   }
 
   page-navbar, page-tab-bar {

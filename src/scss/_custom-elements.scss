@@ -11,7 +11,8 @@ page-header {
     height: 85%;
   }
 
-  .logo-text {
+  .logo-text, 
+  .logo-name {
     font-size: 15pt;
     margin-left: 1%;
     margin-right: 2%;
@@ -88,8 +89,12 @@ page-header {
     color: inherit;
   }
   .header-button {
-    height: 35px;
-    @extend .fc, .w-fit-content;
+    height: 30px;
+    display: flex;
+    width: fit-content;
+    justify-content: center;
+    align-items: center;
+    @extend .px-1;
     flex-wrap: nowrap;
   }
 }

@@ -5,8 +5,8 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "style": "sass ./src/scss/streamline.app.scss:./dist/css/streamline.app.css",
-    "style-min": "sass ./src/scss/streamline.app.scss:./dist/css/streamline.app.min.css --style compressed"
+    "style": "sass ./src/scss/streamline.app.scss:./dist/css/streamline.app.css && sass ./src/scss/streamline.app.scss:./dist/css/streamline.app.min.css --style compressed",
+    "style-watch": "sass --watch ./src/scss/streamline.app.scss:./dist/css/streamline.app.css && sass --watch ./src/scss/streamline.app.scss:./dist/css/streamline.app.min.css --style compressed"
   },
   "keywords": [
     "CSS",

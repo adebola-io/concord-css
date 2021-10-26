@@ -1,3 +1,4 @@
+@use 'config';
 
 /* Responsive Design */
 @media (max-width: 720px) {
@@ -28,6 +29,11 @@
     .header-drop-btn,
     .header-drop-down {
       display: flex;
+    }
+    .header-button {
+      height: 36px;
+      padding-left: 2%;
+      padding-right: 2%;
     }
   }
   page-navbar, page-tab-bar {
