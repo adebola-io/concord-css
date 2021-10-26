@@ -5,14 +5,17 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
+    "compile-css-message": "node -e \"require('./scripts/build.js').stdout(1)",
     "compile-css": "sass ./src/scss/streamline.app.scss:./dist/css/streamline.app.css",
-    "minify-css": "minify ./dist/css/streamline.app.css > ./dist/css/streamline.app.min.css",
+    "compile-js-message": "node -e \"require('./scripts/build.js').stdout(2)",
     "compile-js": "gulp scripts",
+    "minify-css-message": "node -e \"require('./scripts/build.js').stdout(3)",
+    "minify-css": "minify ./dist/css/streamline.app.css > ./dist/css/streamline.app.min.css",
+    "minify-js-message": "node -e \"require('./scripts/build.js').stdout(4)",
     "minify-js": "minify ./dist/js/streamline.app.js > ./dist/js/streamline.app.min.js",
+    "final-build-message": "node -e \"require('./scripts/build.js').stdout(5)",
     "watch-style": "sass --watch ./src/scss/streamline.app.scss:./dist/css/streamline.app.css",
-    "build-shalaye": " node scripts/compilingcss.js && npm run compile-css && node scripts/minifyingcss.js && npm run minify-css && node scripts/concatenating.js && npm run compile-js && node scripts/minifyingjs.js && npm run minify-js && node scripts/build.js",
-    "build":"node scripts/dist.js",
-    "show": "echo lalalala"
+    "build": "npm run compile-css-message && npm run compile-css && npm run compile-js-message && npm run compile-js && npm run minify-css-message && npm run minify-css && npm run minify-js-message && npm run minify-js && npm run final-build-message"
   },
   "keywords": [
     "CSS",
