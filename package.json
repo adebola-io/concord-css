@@ -10,7 +10,8 @@
     "compile-js": "gulp scripts",
     "minify-js": "minify ./dist/js/streamline.app.js > ./dist/js/streamline.app.min.js",
     "watch-style": "sass --watch ./src/scss/streamline.app.scss:./dist/css/streamline.app.css",
-    "build": " node scripts/compilingcss.js && npm run compile-css && node scripts/minifyingcss.js && npm run minify-css && node scripts/concatenating.js && npm run compile-js && node scripts/minifyingjs.js && npm run minify-js && node scripts/build.js",
+    "build-shalaye": " node scripts/compilingcss.js && npm run compile-css && node scripts/minifyingcss.js && npm run minify-css && node scripts/concatenating.js && npm run compile-js && node scripts/minifyingjs.js && npm run minify-js && node scripts/build.js",
+    "build":"node scripts/dist.js",
     "show": "echo lalalala"
   },
   "keywords": [
