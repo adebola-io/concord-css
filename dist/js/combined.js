@@ -293,6 +293,7 @@ const dismissPopup = (popupName) =>{
     } else console.error(`The popup ${popupName} is not open.`)
 }
 
+// Usability of attribute 'stay'
 const stickPopup = () => {
      if (document.querySelector(`page-popup[stay]`)){
         let popup = document.querySelector(`page-popup[stay]`).cloneNode(true);
