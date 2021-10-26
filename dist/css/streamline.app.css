@@ -63,7 +63,7 @@
   display: none;
 }
 
-.flex, .fstretch-y, .spce-between-x, .fcol, page-footer, .fey, .fe, .fex, .fcy, page-header, .fc, page-popup-container, .fcx, .frow-rvrse, .frow, .fwrap {
+.flex, .fstretch-y, .spce-between-x, .fcol, page-footer, .fey, .fe, .fex, .fcy, page-header, .fc, page-header .header-button, page-popup-container, .fcx, .frow-rvrse, .frow, .fwrap {
   display: flex;
 }
 
@@ -79,11 +79,11 @@
   flex-direction: row-reverse;
 }
 
-.fcx, .fc, page-popup-container {
+.fcx, .fc, page-header .header-button, page-popup-container {
   justify-content: center;
 }
 
-.fcy, page-header, page-footer, .fc, page-popup-container {
+.fcy, page-header, page-footer, .fc, page-header .header-button, page-popup-container {
   align-items: center;
 }
 
@@ -2648,7 +2648,7 @@
   height: initial;
 }
 
-.w-fit-content {
+.w-fit-content, page-header .header-button {
   width: fit-content;
 }
 
@@ -2843,6 +2843,10 @@ page-header .header-drop-btn-stair-2 {
 }
 page-header .drop-down-item {
   color: inherit;
+}
+page-header .header-button {
+  height: 35px;
+  flex-wrap: nowrap;
 }
 
 page-popup {

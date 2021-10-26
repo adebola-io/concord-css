@@ -78,6 +78,11 @@ page-header {
   .drop-down-item {
     color: inherit;
   }
+  .header-button {
+    height: 35px;
+    @extend .fc, .w-fit-content;
+    flex-wrap: nowrap;
+  }
 }
 
 page-popup {
