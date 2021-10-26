@@ -5,10 +5,14 @@ colors.setTheme({
     brightMagenta: "brightMagenta",
     red: "red",
     yellow: "yellow",
-    brightBlue: "brightBlue"})
+    brightBlue: "brightBlue",
+    green: "green",
+    blue: "blue"
+})
 
 const log1 = () => {
     return new Promise ((resolve, reject)=>{
+        const successful = true;
         console.log("Compiling SCSS...".brightMagenta);
         var cmd = exec("npm run compile-css", (err, stdout, stderr)=>{
         if (err) {
@@ -21,7 +25,7 @@ const log1 = () => {
         return;
     }
 
-    error?reject:resolve;
+    successful?resolve():reject();
 })
     })
     
@@ -29,8 +33,31 @@ const log1 = () => {
 
 
 const log2 = () => {
-    console.log("SCSS to CSS Compilation Successful. Minifying CSS...".yellow)
-    var cmd2 = exec("npm run minify-css", (err, stdout, stderr)=>{
+    return new Promise ((resolve, reject) => {
+        const successful = true;
+        console.log("SCSS to CSS Compilation Successful. Minifying CSS...".yellow);
+        var cmd2 = exec("npm run minify-css", (err, stdout, stderr)=>{
+        if (err) {
+            console.error(`Error!`.red);
+            console.log(err.message.red);
+            return;
+        }
+    if (stderr) {
+        console.error(stderr);
+        return;
+    }
+    })
+    })
+
+      successful?resolve():reject();
+}
+
+const log3 = () => {
+    return new Promise ((resolve, reject)=>{
+       const successful = true;
+
+       console.log("CSS Minified Successfully. Concatenating JS Files..".brightBlue)
+       var cmd = exec("npm run compile-css", (err, stdout, stderr)=>{
     if (err) {
         console.error(`Error!`.red);
         console.log(err.message.red);
@@ -41,26 +68,8 @@ const log2 = () => {
         return;
     }
     })
+
+      successful?resolve():reject();
+    })
 }
 
-const log3 = () => {
-    console.log("CSS Minified Successfully. Concatenating JS Files..".brightBlue)
-    var cmd = exec("npm run compile-css", (err, stdout, stderr)=>{
-    if (err) {
-        console.error(`Error!`.red);
-        console.log(err.message.red);
-        return;
-    }
-    if (stderr) {
-        console.error(stderr);
-        return;
-    }
-})
-}
-
-const logAll = (log1, log2) => {
-    log1();
-    log2();
-}
-
-logAll(log1, log2);
