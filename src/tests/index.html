@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html fill lang="en">
+<html>
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -7,11 +7,14 @@
     <title>Document</title>
     <link rel="stylesheet" href="../../dist/css/streamline.app.min.css">
 </head>
-<body fill class="fc">
-    <div onclick="Streamline.triggerPopup('popup1')" class="button-small bg-darkblue fnt-16pt txt-white fnt-segoe">
-        Click Me
-    </div>
-    <page-popup name='popup1'></page-popup>
+<body class="fnt-segoe">
+    <page-header droptype='sidebar' droptoggle='sandwich' class="bg-darkblue txt-white">
+        <nav>
+            <a class="header-navlink drop-down-item" href="#">Home</a>
+            <a class="header-navlink drop-down-item" href="#">Home</a>
+            <a class="header-navlink drop-down-item" href="#">Home</a>
+        </nav>
+    </page-header>
     <script src="../../dist/js/combined.js"></script>
 </body>
 </html>

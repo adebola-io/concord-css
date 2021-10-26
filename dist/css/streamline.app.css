@@ -3113,11 +3113,6 @@ form > input.center-search:focus {
     display: none;
   }
 
-  header-space {
-    display: block;
-    margin-top: 48px;
-  }
-
   page-header {
     height: 48px;
     padding: 0 4%;
@@ -3134,6 +3129,10 @@ page-header .header-drop-down {
     height: 36px;
     padding-left: 2%;
     padding-right: 2%;
+  }
+  page-header header-space {
+    display: block;
+    margin-top: 48px;
   }
 
   page-navbar, page-tab-bar {

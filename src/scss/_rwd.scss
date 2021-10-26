@@ -15,10 +15,6 @@
   .streamline-react-header-navigation {
     display: none;
   }
-  header-space {
-    display: block;
-    margin-top: 48px;
-  }
   page-header {
     height: 48px;
     padding: 0 4%;
@@ -35,6 +31,10 @@
       padding-left: 2%;
       padding-right: 2%;
     }
+      header-space {
+        display: block;
+        margin-top: 48px;
+      }
   }
   page-navbar, page-tab-bar {
     padding: 0 4%;

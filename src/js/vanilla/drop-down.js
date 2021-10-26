@@ -34,7 +34,6 @@ const addDropDown = () => {
                     };
                     streamlineHeader.append(headerContain);
                     streamlineHeader.style.flexDirection = "column";
-                    streamlineHeader.style.height = "fit-content";
                     streamlineHeader.style.padding = '0';
                     streamlineHeader.style.width = '100%';
 
@@ -45,13 +44,15 @@ const addDropDown = () => {
 
                     // Usability of attribute 'droptype'
                     let dropDownType = streamlineHeader.getAttribute('droptype');
+                    let sizelessDiv, dropDownHeight, headerSpace;
                     switch (dropDownType) {
                         case 'pull':
                         case 'fade':
+                            streamlineHeader.style.height = "fit-content";
                             streamlineHeader.append(headerDropDown);
                             if (dropDownType==='fade') headerDropDown.style.opacity = '0';
                             headerDropDown.style.height = 'fit-content';
-                            let dropDownHeight = headerDropDown.offsetHeight+'px';
+                            dropDownHeight = headerDropDown.offsetHeight+'px';
                             headerDropDown.style.height = '0px';
                             dropDownButton.addEventListener('click', ()=>{
                                 dropDownClickCounter++;
@@ -65,7 +66,7 @@ const addDropDown = () => {
                             break;
                         case 'expand':
                             sizelessDiv = document.createElement('div');
-                            sizelessDiv.classList = 's0 mright-auto mleft-2';
+                            sizelessDiv.classList.value = 's0 mright-auto mleft-2';
                             headerDropDown.classList.remove('w100', 'h0');
                             headerDropDown.classList.add('brdr-curve-5px','shadow-2px');
                             headerDropDown.style.transform = 'translateY(3px)';
@@ -86,13 +87,13 @@ const addDropDown = () => {
                             break;
                         case 'sidebar':
                             default:
-                            let sizelessDiv = document.createElement('div');
-                            let headerSpace = document.createElement('header-space');
-                            sizelessDiv.classList = 's0 mright-auto ';
+                            sizelessDiv = document.createElement('div');
+                            headerSpace = document.createElement('header-space');
+                            sizelessDiv.classList.value = 's0 mright-auto ';
                             headerDropDown.classList.remove('h0');
                             headerDropDown.classList.add('h100', 'move-left');
                             headerDropDown.style.width = '300px';
-                            sizelessDiv.append(headerSpace);
+                            headerDropDown.prepend(headerSpace);
                             sizelessDiv.append(headerDropDown);
                             streamlineHeader.prepend(sizelessDiv);
                             headerDropDown.style.height = (window.innerHeight-20).toString()+'px';
