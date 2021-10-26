@@ -3,5 +3,5 @@ const gulp = require("gulp");
 
 var jsFiles = 'src/js/vanilla/**.js', jsDest = 'dist/js/'
 gulp.task('scripts', function () {
-    return gulp.src(jsFiles).pipe(gulpConcat('combined.js')).pipe(gulp.dest(jsDest));
+    return gulp.src(jsFiles).pipe(gulpConcat('streamline.app.js')).pipe(gulp.dest(jsDest));
 });
