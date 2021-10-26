@@ -2,6 +2,7 @@ const triggerPopup = (popupName) => {
     if (document.querySelector(`page-popup[name='${popupName}']`)){
         let popup = document.querySelector(`page-popup[name='${popupName}']`).cloneNode(true);
         popup.classList.value = 'block'+popup.classList.value;
+        if (popup.innerText === '') {popup.innerText = ''}
         let popupContainer = document.createElement('page-popup-container');
         popupContainer.append(popup);
         popupContainer.setAttribute('name', popupName);
@@ -89,4 +90,43 @@ const dismissPopup = (popupName) =>{
                 break;
         }
     } else console.error(`The popup ${popupName} is not open.`)
+}
+
+// Usability of attribute 'stay'
+const stickPopup = () => {
+     if (document.querySelector(`page-popup[stay]`)){
+        let popup = document.querySelector(`page-popup[stay]`).cloneNode(true);
+        let popupName = popup.getAttribute('name');
+        popup.classList.value = 'block'+popup.classList.value;
+        if (popup.innerText === '') {popup.innerText = ''}
+        let popupContainer = document.createElement('page-popup-container');
+        popupContainer.append(popup);
+        popupContainer.setAttribute('name', popupName);
+        document.body.append(popupContainer);
+
+        // Usability of attribute 'type'
+        let popupType = popup.getAttribute('type');
+        switch (popupType){
+            case 'expand':
+                popup.animate(
+                    [
+                        {transform: 'scale(0.8)'},
+                        {transform: 'scale(1.2)'},
+                        {transform: 'scale(1)'},
+                    ],
+                    {duration: 300, iterations: 1, fill: "forwards"}
+                )
+                break;
+            case 'fade':
+                default:
+                popup.animate(
+                    [
+                        {transform: 'scale(1.2)', filter: 'opacity(0)'},
+                        {transform: 'scale(1)', filter: 'opacity(1)'}
+                    ],
+                    {duration: 200, iterations: 1, fill: "forwards"}
+                )
+                break;
+        }
+    }
 }
