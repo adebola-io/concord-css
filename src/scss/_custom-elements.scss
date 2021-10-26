@@ -7,6 +7,15 @@ page-header {
   top: 0;
   height: 40px;
   z-index: 3;
+  .logo-image {
+    height: 85%;
+  }
+
+  .logo-text {
+    font-size: 15pt;
+    margin-left: 1%;
+    margin-right: 2%;
+  }
   nav {
     display: flex;
 
@@ -251,14 +260,6 @@ page-footer > copy-right {
 }
 .login-button-large {
   height: 55px;
-}
-.logo-image {
-  height: 85%;
-}
-.logo-text {
-  font-size: 15pt;
-  margin-left: 1%;
-  margin-right: 2%;
 }
 
 /* Actions */

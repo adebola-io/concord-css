@@ -2781,6 +2781,14 @@ page-header {
   height: 40px;
   z-index: 3;
 }
+page-header .logo-image {
+  height: 85%;
+}
+page-header .logo-text {
+  font-size: 15pt;
+  margin-left: 1%;
+  margin-right: 2%;
+}
 page-header nav {
   display: flex;
 }
@@ -3030,16 +3038,6 @@ page-footer > copy-right {
 
 .login-button-large {
   height: 55px;
-}
-
-.logo-image {
-  height: 85%;
-}
-
-.logo-text {
-  font-size: 15pt;
-  margin-left: 1%;
-  margin-right: 2%;
 }
 
 /* Actions */
