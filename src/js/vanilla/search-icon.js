@@ -1,4 +1,4 @@
-    function createSearchIcon() {
+const createSearchIcon = () => {
       if (document.querySelector('search-icon')){
           document.querySelectorAll('search-icon').forEach(searchIcon=>{
             let iconColor = searchIcon.getAttribute('color');
@@ -13,5 +13,3 @@
           })
       }  
     }
-
-    export default createSearchIcon

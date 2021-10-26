@@ -2867,6 +2867,7 @@ page-popup {
   height: 41%;
   width: 70%;
   background: lightblue;
+  display: none;
   transform: scale(0);
   border-radius: 13px;
 }
@@ -2904,7 +2905,6 @@ tiny-text,
 page-card,
 page-heart,
 page-triangle,
-page-popup,
 floating-button,
 lineup-item,
 nav-item {
@@ -3064,7 +3064,6 @@ page-footer > copy-right {
 
 .button-small {
   height: 35px;
-  font-size: 12pt;
 }
 
 .button-medium {

@@ -24,5 +24,3 @@ const createBoardElement = () => {
         })
     }
 }
-
-export default createBoardElement;

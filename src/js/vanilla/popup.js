@@ -1,6 +1,7 @@
-export function triggerPopup (popupName) {
+const triggerPopup = (popupName) => {
     if (document.querySelector(`page-popup[name='${popupName}']`)){
         let popup = document.querySelector(`page-popup[name='${popupName}']`).cloneNode(true);
+        popup.classList.value = 'block'+popup.classList.value;
         let popupContainer = document.createElement('page-popup-container');
         popupContainer.append(popup);
         popupContainer.setAttribute('name', popupName);
@@ -59,7 +60,7 @@ export function triggerPopup (popupName) {
         console.error(`The popup ${popupName} does not exist.`)
     }
 }
-export function dismissPopup (popupName){
+const dismissPopup = (popupName) =>{
     if (document.querySelector(`page-popup-container[name='${popupName}']`)){
         let popup = document.querySelector(`page-popup-container[name='${popupName}']`).querySelector(`page-popup`);
         let popupType = popup.getAttribute('type');

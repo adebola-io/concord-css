@@ -1,4 +1,4 @@
-function addHoverClasses () {
+const addHoverClasses = () => {
         if (document.querySelector('[hover-class]')) {
             document.querySelectorAll('[hover-class]').forEach(element=>{
                 let originalClassListValue = element.classList.value;
@@ -12,4 +12,3 @@ function addHoverClasses () {
             })
         }
     }
-export default addHoverClasses

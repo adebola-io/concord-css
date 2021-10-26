@@ -1,4 +1,4 @@
- export default setThemeColor = (color) => {
+ const setThemeColor = (color) => {
         if (document.querySelector('meta[name="theme-color"]')) {
             document.querySelector('meta[name="theme-color"]').remove();
         }

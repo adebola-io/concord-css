@@ -6,7 +6,8 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "style": "sass ./src/scss/streamline.app.scss:./dist/css/streamline.app.css && sass ./src/scss/streamline.app.scss:./dist/css/streamline.app.min.css --style compressed",
-    "style-watch": "sass --watch ./src/scss/streamline.app.scss:./dist/css/streamline.app.css && sass --watch ./src/scss/streamline.app.scss:./dist/css/streamline.app.min.css --style compressed"
+    "style-watch": "sass --watch ./src/scss/streamline.app.scss:./dist/css/streamline.app.css && sass --watch ./src/scss/streamline.app.scss:./dist/css/streamline.app.min.css --style compressed",
+    "dist": ""
   },
   "keywords": [
     "CSS",
@@ -23,6 +24,8 @@
     "scss": "^0.2.4"
   },
   "devDependencies": {
-    "gulp-concat": "^2.6.1"
+    "gulp-concat": "^2.6.1",
+    "gulp-resolve-dependencies": "^4.1.0",
+    "typescript": "^4.3.5"
   }
 }
