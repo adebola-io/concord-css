@@ -103,3 +103,5 @@ const process5 = () => {
       successful?resolve():reject();
     })
 }
+
+process1().then(process2()).then(process3()).then(process4()).then(process5())
