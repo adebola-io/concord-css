@@ -2914,7 +2914,7 @@ page-header .header-button {
 page-popup {
   z-index: 7;
   height: 41%;
-  width: 70%;
+  width: 360px;
   background: lightblue;
   display: none;
   transform: scale(0);
@@ -3161,6 +3161,10 @@ form > input.center-search:focus {
 
   .streamline-react-header-navigation {
     display: none;
+  }
+
+  page-popup {
+    width: 70%;
   }
 
   page-header {

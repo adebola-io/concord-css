@@ -97,7 +97,7 @@ const stickPopup = () => {
      if (document.querySelector(`page-popup[stay]`)){
         let popup = document.querySelector(`page-popup[stay]`).cloneNode(true);
         let popupName = popup.getAttribute('name');
-        popup.classList.value = 'block'+popup.classList.value;
+        popup.classList.value = `block ${popup.classList.value}`;
         if (popup.innerText === '') {popup.innerText = ''}
         let popupContainer = document.createElement('page-popup-container');
         popupContainer.append(popup);
