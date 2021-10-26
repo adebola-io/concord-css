@@ -5,8 +5,10 @@ const createSearchIcon = () => {
             let iconSize = searchIcon.getAttribute('size');
             if (iconColor){
                searchIcon.style.setProperty('--searchIconColor', iconColor);
-               console.log(searchIcon.style.searchColor);
-            } 
+            } else {
+              let inheritedColor = window.getComputedStyle(searchIcon.parentNode, null).getPropertyValue('color');
+              searchIcon.style.setProperty('--searchIconColor', inheritedColor);
+            }
             if (iconSize){
                 searchIcon.style.height = searchIcon.style.width = iconSize;
             }
