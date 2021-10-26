@@ -12,7 +12,7 @@ class StreamlineUI {
         addHoverClasses();
         createSearchIcon();
         setThemeColor();
-        addVibration();
+        // addVibration();
         stickPopup();
     }
 }

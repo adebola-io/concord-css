@@ -40,7 +40,7 @@ const addDropDown = () => {
                     unOrderedList.classList.value = "w100 h100 p0 m0";
                     streamlineHeader.querySelectorAll(".drop-down-item").forEach(dropItem=>{
                         let navbarlinkContainer = document.createElement('li');
-                        navbarlinkContainer.classList.value = 'txt-plain py-3 pleft-3'
+                        navbarlinkContainer.classList.value = 'py-3 pleft-3'
                         navbarlinkContainer.append(dropItem.cloneNode(true));
                         unOrderedList.append(navbarlinkContainer);
                     })
@@ -358,23 +358,6 @@ const createSearchIcon = () => {
         metaTag.content = color;
         document.querySelector('head').append(metaTag);
     }
-const addVibration = () => {
-        if (document.querySelector('.hover-vibrate')){
-            document.querySelectorAll('.hover-vibrate').forEach((element)=>{
-                element.animate(
-                    [
-                        {transform: 'translateX(-1%)'},
-                        {transform: 'translateX(1%)'},
-                        {transform: 'translateX(-1%)'},
-                        {transform: 'translateX(1%)'},
-                    ],
-                    {duration: 450,
-                    iterations: this.vibration
-                    }
-                )
-            })
-        }
-    }
 
 class StreamlineUI {
     triggerPopup = (popup) => {
@@ -389,7 +372,7 @@ class StreamlineUI {
         addHoverClasses();
         createSearchIcon();
         setThemeColor();
-        addVibration();
+        // addVibration();
         stickPopup();
     }
 }

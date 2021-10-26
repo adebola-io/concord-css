@@ -84,9 +84,8 @@ page-header {
   .header-drop-btn-stair-2 {
     width: 35%;
   }
-
   .drop-down-item {
-    color: inherit;
+    $emptyValue: initial;
   }
   .header-button {
     height: 30px;

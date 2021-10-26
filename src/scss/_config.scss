@@ -197,14 +197,6 @@ $autoSizes: (initial, fit-content, inherit);
         }
 }
 
-// Hoverings
-$hovers : (
-    ('shrink', 'transform: scale(0);'),
-    ('rise', 'transform: translateY(-5%)); box-shadow: 0 0 8px 0;'),
-    ('vanish', ' opacity: 0;'),
-    ('inflate', 'opacity:')
-    );
-
 //Transitions 
 $times: (250, 300, 450, 600, 900);
 @each $time in $times {

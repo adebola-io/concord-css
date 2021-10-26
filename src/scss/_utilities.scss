@@ -253,12 +253,36 @@
 .hover-inflate:hover {
     transform: scale(1.09);
 }
-
+.hover-inflate-2x:hover {
+    transform: scale(2);
+}
 .hover-rise:hover {
     transform: translateY(-5%);
     box-shadow: 0 0 8px 0;
 }
-
+.hover-vibrate:hover {
+    animation: vibrate 600ms;
+}
+.hover-vibrate-2x:hover {
+    // transform: scale(4);
+    animation: doublevibrate 700ms ease;
+}
+@keyframes vibrate {
+    0% {transform: translateX(0)}
+    25% {transform: translateX(5%)}
+    50% {transform: translateX(-5%)}
+    75% {transform: translateX(5%)}
+    100% {transform: translateX(0)}
+}
+@keyframes doublevibrate {
+    0% {transform: translateX(0)}
+    12% {transform: translateX(5%)}
+    25% {transform: translateX(-5%)}
+    50% {transform: translateX(5%)}
+    75% {transform: translateX(-5%)}
+    87% {transform: translateX(5%)}
+    100% {transform: translateX(0)}
+}
 .hover-vanish:hover {
     opacity: 0;
 }
