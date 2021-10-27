@@ -17,7 +17,7 @@ class StreamlineUI {
         addDropDown();
         addHoverClasses();
         createSearchIcon();
-        createCarousels();
+        // createCarousels();
         // addVibration();
         stickPopup();
     }

@@ -13,8 +13,8 @@ const triggerPopup = (popupName) => {
         document.body.append(popupContainer);
 
         // Usability of attribute 'type'
-        let popupType = popup.getAttribute('type');
-        switch (popupType){
+        let popupAnimation = popup.getAttribute('animation');
+        switch (popupAnimation){
             case 'expand':
                 popup.animate(
                     [
@@ -38,8 +38,7 @@ const triggerPopup = (popupName) => {
                     }
                 })
                 break;
-            case 'fade':
-                default:
+            case 'condense-in':
                 popup.animate(
                     [
                         {transform: 'scale(1.2)', filter: 'opacity(0)'},
@@ -60,6 +59,36 @@ const triggerPopup = (popupName) => {
                     }
                 })
                 break;
+            case 'none':
+                popup.style.transform = 'scale(1)';
+                popupContainer.addEventListener('click', (e)=>{
+                    if (!(e.target === popup)){
+                        popupContainer.remove();
+                    }
+                })
+                break;
+            case 'fade':
+                default:
+                popup.animate(
+                    [
+                        {transform: 'scale(1)',  opacity: '0'},
+                        {transform: 'scale(1)', opacity: '1'}
+                    ],
+                    {duration: 300, iterations: 1, fill: "forwards"}
+                )
+                popupContainer.addEventListener('click', (e)=>{
+                    if (!(e.target === popup)){
+                            popup.animate(
+                                [
+                                    {opacity: '1'},
+                                    {opacity: '0'},
+                                ],
+                                {duration: 300, iterations: 1, fill: "forwards"}
+                            )   
+                        setTimeout(()=>{popupContainer.remove()}, 300);
+                    }
+                })
+                break;
         }
     } else {
         console.error(`The popup ${popupName} does not exist.`)
@@ -68,9 +97,9 @@ const triggerPopup = (popupName) => {
 const dismissPopup = (popupName) =>{
     if (document.querySelector(`page-popup-container[name='${popupName}']`)){
         let popup = document.querySelector(`page-popup-container[name='${popupName}']`).querySelector(`page-popup`);
-        let popupType = popup.getAttribute('type');
+        let popupAnimation = popup.getAttribute('animation');
         let popupContainer = popup.parentNode;
-        switch (popupType){
+        switch (popupAnimation){
             case 'expand':
                 popup.animate(
                     [
@@ -82,8 +111,7 @@ const dismissPopup = (popupName) =>{
                 )   
                 setTimeout(()=>{popupContainer.remove()}, 300);
                 break;
-            case 'fade':
-                default:
+            case 'condense-in':
                 popup.animate(
                     [
                         {transform: 'scale(1)', filter: 'opacity(1)'},
@@ -91,9 +119,23 @@ const dismissPopup = (popupName) =>{
                     ],
                     {duration: 200, iterations: 1, fill: "forwards"}
                 )   
-                    setTimeout(()=>{popupContainer.remove()}, 300);
+                setTimeout(()=>{popupContainer.remove()}, 300);
                 break;
-        }
+            case 'fade':
+                default:
+                popup.animate(
+                    [
+                        {opacity: '1'},
+                        {opacity: '0'},
+                    ],
+                    {duration: 300, iterations: 1, fill: "forwards"}
+                )   
+                setTimeout(()=>{popupContainer.remove()}, 300);
+                break;
+            case 'none':
+                popupContainer.remove();
+                break;
+            }
     } else console.error(`The popup ${popupName} is not open.`)
 }
 
@@ -110,8 +152,8 @@ const stickPopup = () => {
         document.body.append(popupContainer);
 
         // Usability of attribute 'type'
-        let popupType = popup.getAttribute('type');
-        switch (popupType){
+        let popupAnimation = popup.getAttribute('animation');
+        switch (popupAnimation){
             case 'expand':
                 popup.animate(
                     [
