@@ -24,16 +24,16 @@ const createBoardElement = () => {
         })
     }
 }
-const createCarousels = () => {
-    if (document.querySelector('page-carousel')){
-        document.querySelectorAll('page-carousel').forEach(carousel=>{
-            if (carousel.getAttribute('height')){
-                carousel.style.height = carousel.getAttribute('height');
-            }
-        })
-    }
-}
+
 const addDropDown = () => {
+        if (document.querySelector('page-header')){
+            document.querySelectorAll('page-header').forEach(streamlineHeader=>{
+                if (streamlineHeader.nextElementSibling.tagName === 'HR'){
+                    let line = streamlineHeader.nextElementSibling;
+                    line.style.marginTop = (parseInt(window.getComputedStyle(streamlineHeader, null).getPropertyValue('height').slice(0,2))+5).toString()+'px';
+                }
+            })
+        }
         if (document.querySelector("page-header") && document.querySelector("page-header").querySelector(".drop-down-item")){
                 document.querySelectorAll("page-header").forEach(streamlineHeader=>{
                     let color = window.getComputedStyle(streamlineHeader, null).getPropertyValue('color'),
@@ -209,6 +209,18 @@ const addHoverClasses = () => {
         }
     }
 
+const addNavBar = () => {
+    if (document.querySelector('page-navbar')){
+        document.querySelectorAll('page-navbar').forEach(streamlineNavBar=>{
+            if (streamlineNavBar.previousElementSibling.tagName === 'HR'){
+                let line =  streamlineNavBar.previousElementSibling;
+                line.classList.value = `fixed bottom ${line.classList.value}`
+                line.style.marginBottom = `${parseInt(window.getComputedStyle(streamlineNavBar, null).getPropertyValue('height').slice(0, -2))+parseInt(window.getComputedStyle(line, null).getPropertyValue('margin-bottom').slice(0, -2))}px`
+                console.log(line.style.marginBottom)
+            }
+        })
+    }
+}
 const triggerPopup = (popupName) => {
     if (document.querySelector(`page-popup[name='${popupName}']`)){
         let popup = document.querySelector(`page-popup[name='${popupName}']`).cloneNode(true);
@@ -224,8 +236,8 @@ const triggerPopup = (popupName) => {
         document.body.append(popupContainer);
 
         // Usability of attribute 'type'
-        let popupType = popup.getAttribute('type');
-        switch (popupType){
+        let popupAnimation = popup.getAttribute('animation');
+        switch (popupAnimation){
             case 'expand':
                 popup.animate(
                     [
@@ -249,8 +261,7 @@ const triggerPopup = (popupName) => {
                     }
                 })
                 break;
-            case 'fade':
-                default:
+            case 'condense-in':
                 popup.animate(
                     [
                         {transform: 'scale(1.2)', filter: 'opacity(0)'},
@@ -271,6 +282,36 @@ const triggerPopup = (popupName) => {
                     }
                 })
                 break;
+            case 'none':
+                popup.style.transform = 'scale(1)';
+                popupContainer.addEventListener('click', (e)=>{
+                    if (!(e.target === popup)){
+                        popupContainer.remove();
+                    }
+                })
+                break;
+            case 'fade':
+                default:
+                popup.animate(
+                    [
+                        {transform: 'scale(1)',  opacity: '0'},
+                        {transform: 'scale(1)', opacity: '1'}
+                    ],
+                    {duration: 300, iterations: 1, fill: "forwards"}
+                )
+                popupContainer.addEventListener('click', (e)=>{
+                    if (!(e.target === popup)){
+                            popup.animate(
+                                [
+                                    {opacity: '1'},
+                                    {opacity: '0'},
+                                ],
+                                {duration: 300, iterations: 1, fill: "forwards"}
+                            )   
+                        setTimeout(()=>{popupContainer.remove()}, 300);
+                    }
+                })
+                break;
         }
     } else {
         console.error(`The popup ${popupName} does not exist.`)
@@ -279,9 +320,9 @@ const triggerPopup = (popupName) => {
 const dismissPopup = (popupName) =>{
     if (document.querySelector(`page-popup-container[name='${popupName}']`)){
         let popup = document.querySelector(`page-popup-container[name='${popupName}']`).querySelector(`page-popup`);
-        let popupType = popup.getAttribute('type');
+        let popupAnimation = popup.getAttribute('animation');
         let popupContainer = popup.parentNode;
-        switch (popupType){
+        switch (popupAnimation){
             case 'expand':
                 popup.animate(
                     [
@@ -293,8 +334,7 @@ const dismissPopup = (popupName) =>{
                 )   
                 setTimeout(()=>{popupContainer.remove()}, 300);
                 break;
-            case 'fade':
-                default:
+            case 'condense-in':
                 popup.animate(
                     [
                         {transform: 'scale(1)', filter: 'opacity(1)'},
@@ -302,9 +342,23 @@ const dismissPopup = (popupName) =>{
                     ],
                     {duration: 200, iterations: 1, fill: "forwards"}
                 )   
-                    setTimeout(()=>{popupContainer.remove()}, 300);
+                setTimeout(()=>{popupContainer.remove()}, 300);
                 break;
-        }
+            case 'fade':
+                default:
+                popup.animate(
+                    [
+                        {opacity: '1'},
+                        {opacity: '0'},
+                    ],
+                    {duration: 300, iterations: 1, fill: "forwards"}
+                )   
+                setTimeout(()=>{popupContainer.remove()}, 300);
+                break;
+            case 'none':
+                popupContainer.remove();
+                break;
+            }
     } else console.error(`The popup ${popupName} is not open.`)
 }
 
@@ -321,8 +375,8 @@ const stickPopup = () => {
         document.body.append(popupContainer);
 
         // Usability of attribute 'type'
-        let popupType = popup.getAttribute('type');
-        switch (popupType){
+        let popupAnimation = popup.getAttribute('animation');
+        switch (popupAnimation){
             case 'expand':
                 popup.animate(
                     [
@@ -373,19 +427,30 @@ const createSearchIcon = () => {
         document.querySelector('head').append(metaTag);
     }
 
+const setSecondaryColor = (color) => {
+    document.body.style.setProperty('--secondaryColor', color);
+}
+
 class StreamlineUI {
     triggerPopup = (popup) => {
         triggerPopup(popup);
-    }
+    };
     dismissPopup = (popup) =>{
         dismissPopup(popup);
-    }
+    };
+    setThemeColor = (color) => {
+        setThemeColor(color);
+    };
+    setSecondaryColor = (color) => {
+        setSecondaryColor(color);
+    };
     runAll () {
         createBoardElement();
         addDropDown();
         addHoverClasses();
+        addNavBar();
         createSearchIcon();
-        setThemeColor();
+        // createCarousels();
         // addVibration();
         stickPopup();
     }
