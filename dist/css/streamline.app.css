@@ -2,22 +2,13 @@ page-header {
   display: flex;
   background: lightblue;
   align-items: center;
-  width: 100%;
   padding-left: 2%;
+  width: 96%;
   padding-right: 2%;
   position: fixed;
   top: 0;
   height: 40px;
   z-index: 3;
-}
-page-header .logo-image {
-  height: 85%;
-}
-page-header .logo-text,
-page-header .logo-name {
-  font-size: 15pt;
-  margin-left: 1%;
-  margin-right: 2%;
 }
 page-header nav {
   display: flex;
@@ -90,6 +81,21 @@ page-header .header-button {
   flex-wrap: nowrap;
 }
 
+.logo-image {
+  height: 85%;
+}
+
+page-navbar {
+  background: lightblue;
+}
+
+.logo-text,
+.logo-name {
+  font-size: 15pt;
+  margin-left: 1%;
+  margin-right: 2%;
+}
+
 header-space {
   display: block;
   margin-top: 40px;
@@ -129,6 +135,7 @@ page-popup-container::before {
 
 page-carousel {
   padding-top: 1%;
+  height: 280px;
 }
 
 page-sidebar {
@@ -161,7 +168,6 @@ lineup-item,
 nav-item {
   display: block;
   color: inherit;
-  background: lightblue;
 }
 
 page-navbar {
@@ -200,6 +206,7 @@ page-navbar {
 search-icon {
   justify-content: center;
   align-items: center;
+  position: fixed;
   flex-direction: column;
   height: 38px;
   width: 38px;
@@ -304,6 +311,12 @@ page-footer > copy-right {
 
 .login-button-large {
   height: 55px;
+}
+
+.header-profile-pic {
+  height: 36px;
+  width: 36px;
+  background: lightblue;
 }
 
 /* Actions */
@@ -808,7 +821,6 @@ form > input.center-search:focus {
   page-header {
     height: 48px;
     padding: 0 4%;
-    width: 100%;
   }
   page-header nav {
     display: none;
@@ -3049,6 +3061,32 @@ page-header .header-drop-down nav {
 .s85 {
   width: 85%;
   height: 85%;
+}
+
+.w90 {
+  width: 90%;
+}
+
+.h90 {
+  height: 90%;
+}
+
+.s90 {
+  width: 90%;
+  height: 90%;
+}
+
+.w92 {
+  width: 92%;
+}
+
+.h92 {
+  height: 92%;
+}
+
+.s92 {
+  width: 92%;
+  height: 92%;
 }
 
 .w95 {

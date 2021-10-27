@@ -16,6 +16,7 @@ class StreamlineUI {
         createBoardElement();
         addDropDown();
         addHoverClasses();
+        addNavBar();
         createSearchIcon();
         // createCarousels();
         // addVibration();

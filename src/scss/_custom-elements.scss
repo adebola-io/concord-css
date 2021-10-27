@@ -4,23 +4,13 @@ page-header {
   display: flex;
   background: $defaultColor;
   align-items: center;
-  width: 100%;
   padding-left: 2%;
+  width: 96%;
   padding-right: 2%;
   position: fixed;
   top: 0;
   height: 40px;
   z-index: 3;
-  .logo-image {
-    height: 85%;
-  }
-
-  .logo-text, 
-  .logo-name {
-    font-size: 15pt;
-    margin-left: 1%;
-    margin-right: 2%;
-  }
   nav {
     display: flex;
 
@@ -102,6 +92,18 @@ page-header {
     flex-wrap: nowrap;
   }
 }
+.logo-image {
+  height: 85%;
+}
+page-navbar {
+  background: $defaultColor;
+}
+.logo-text,
+.logo-name {
+  font-size: 15pt;
+  margin-left: 1%;
+  margin-right: 2%;
+}
 header-space {
   display: block;
   margin-top: 40px;
@@ -139,6 +141,7 @@ page-popup {
 }
 page-carousel {
   padding-top: 1%;
+  height: 280px;
 }
 
 page-sidebar {
@@ -170,7 +173,6 @@ lineup-item,
 nav-item {
   display: block;
   color: inherit;
-  background: $defaultColor;
 }
 page-navbar {
   display: none;
@@ -202,6 +204,7 @@ page-navbar {
 search-icon {
   justify-content: center;
   align-items: center;
+  position: fixed;
   flex-direction: column;
   $size : 38px;
   height: $size;
@@ -293,6 +296,12 @@ page-footer > copy-right {
 }
 .login-button-large {
   height: 55px;
+}
+
+.header-profile-pic {
+  height: 36px;
+  width: 36px;
+  background: $defaultColor;
 }
 
 /* Actions */

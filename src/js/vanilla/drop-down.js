@@ -1,4 +1,12 @@
 const addDropDown = () => {
+        if (document.querySelector('page-header')){
+            document.querySelectorAll('page-header').forEach(streamlineHeader=>{
+                if (streamlineHeader.nextElementSibling.tagName === 'HR'){
+                    let line = streamlineHeader.nextElementSibling;
+                    line.style.marginTop = (parseInt(window.getComputedStyle(streamlineHeader, null).getPropertyValue('height').slice(0,2))+5).toString()+'px';
+                }
+            })
+        }
         if (document.querySelector("page-header") && document.querySelector("page-header").querySelector(".drop-down-item")){
                 document.querySelectorAll("page-header").forEach(streamlineHeader=>{
                     let color = window.getComputedStyle(streamlineHeader, null).getPropertyValue('color'),
