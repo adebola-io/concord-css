@@ -7,3 +7,7 @@
         metaTag.content = color;
         document.querySelector('head').append(metaTag);
     }
+
+const setSecondaryColor = (color) => {
+    document.body.style.setProperty('--secondaryColor', color);
+}

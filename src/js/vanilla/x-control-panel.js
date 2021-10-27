@@ -2,16 +2,22 @@
 class StreamlineUI {
     triggerPopup = (popup) => {
         triggerPopup(popup);
-    }
+    };
     dismissPopup = (popup) =>{
         dismissPopup(popup);
-    }
+    };
+    setThemeColor = (color) => {
+        setThemeColor(color);
+    };
+    setSecondaryColor = (color) => {
+        setSecondaryColor(color);
+    };
     runAll () {
         createBoardElement();
         addDropDown();
         addHoverClasses();
         createSearchIcon();
-        setThemeColor();
+        createCarousels();
         // addVibration();
         stickPopup();
     }

@@ -21,16 +21,16 @@ page-header {
     display: flex;
 
     a, 
-    .header-navlink {
+    .header-navlink, 
+    .drop-down-section-header {
       text-decoration: none;
       color: inherit;
       white-space: nowrap;
-      margin: 0 2%;
+      margin: 0 4%;
     }
-  }
-  header-space {
-    display: none;
-    margin-top: 40px;
+    .drop-down-section-item {
+      display: none;
+    }
   }
   drop-down {
     display: none;
@@ -97,7 +97,10 @@ page-header {
     flex-wrap: nowrap;
   }
 }
-
+header-space {
+  display: block;
+  margin-top: 40px;
+}
 page-popup {
   z-index: 7;
   height: 41%;
@@ -124,12 +127,16 @@ page-popup {
     }
   }
 }
+page-carousel {
+  padding-top: 1%;
+}
 
 page-sub-header,
 page-tab-bar,
+page-carousel,
+carousel-item,
 button-row,
 search-icon,
-page-navbar,
 page-footer,
 page-carousel,
 page-carousel-item,
@@ -148,6 +155,22 @@ lineup-item,
 nav-item {
   display: block;
   color: inherit;
+}
+page-navbar {
+  display: none;
+}
+
+carousel-item[type=book],
+carousel-item[type=movie] {
+    height: 270px;
+    width: 168.75px;
+    border-radius: 5px;
+    margin: 0 25px;
+    box-shadow: 0 0 5px 0;
+}
+.carousel-heading {
+    font-size: 25pt;
+    margin-left: 25px;
 }
 
 tiny-text {

@@ -4,16 +4,53 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <link rel="stylesheet" href="../../dist/css/streamline.app.min.css">
+    <title>Test File</title>
+    <link rel="stylesheet" href="../../dist/css/streamline.app.css">
 </head>
-<body>
-    <page-header onclick="Streamline.triggerPopup('alert-1')" class="bg-green">
-
+<body class="fnt-segoe">
+    <page-header droptoggle="staircase" class="bg-hardblue txt-pink">
+        <span class="logo-name">Marketplace</span>
+        <nav class="mx-auto">
+            <a class="header-navlink drop-down-item" href="#">Home</a>
+            <nav class="drop-down-item">
+                <div class="drop-down-section-header mleft-0">Trending</div>
+                <a class="drop-down-section-item fnt-12pt" href="#">TVs and Electronics</a>
+                <a class="drop-down-section-item  fnt-12pt"href="#">Clothing</a>
+                <a href="#" class="drop-down-section-item fnt-12pt">Black Friday Deals</a>
+            </nav>
+            <a href="#" class="header-navlink drop-down-item">Customer Service</a>
+            <a href="#" class="header-navlink drop-down-item">Registry</a>
+        </nav>
+        <search-icon size="23px" class="mleft-auto"></search-icon>
     </page-header>
-    <page-popup name='alert-1' class="fc bg-lightgreen">
-        Girls, girls, everyday...
-    </page-popup>
-    <script src="../../dist/js/streamline.app.min.js"></script>
+    <page-carousel heading='Your best' heading-class='txt-red'>
+        <carousel-item  type='book'></carousel-item>
+        <carousel-item  type='book'></carousel-item>
+        <carousel-item  type='book'></carousel-item>
+        <carousel-item  type='book'></carousel-item>
+    </page-carousel>
+    <page-carousel heading='Very good'>
+        <carousel-item type=''></carousel-item>
+    </page-carousel>
+
+
+
+
+
+
+
+
+
+    <script src="../js/vanilla/board.js"></script>
+    <script src="../js/vanilla/carousel.js"></script>
+    <script src="../js/vanilla/drop-down.js"></script>
+    <script src="../js/vanilla/hover-class.js"></script>
+    <script src="../js/vanilla/popup.js"></script>
+    <script src="../js/vanilla/search-icon.js"></script>
+    <script src="../js/vanilla/theme.js"></script>
+    <script src="../js/vanilla/x-control-panel.js"></script>
+    <script>
+        Streamline.setSecondaryColor('pink');
+    </script>
 </body>
 </html>

@@ -1,8 +1,12 @@
 const triggerPopup = (popupName) => {
     if (document.querySelector(`page-popup[name='${popupName}']`)){
         let popup = document.querySelector(`page-popup[name='${popupName}']`).cloneNode(true);
-        popup.classList.value = 'block'+popup.classList.value;
-        if (popup.innerText === '') {popup.innerText = ''}
+        popup.classList.value = `block ${popup.classList.value}`;
+        if (popup.innerText === '') {
+            popup.innerText = popupName;
+            popup.style.color = '#717171';
+            popup.classList.value = `fc fnt-11pt txt-uppercase ${popup.classList.value}`;
+        }
         let popupContainer = document.createElement('page-popup-container');
         popupContainer.append(popup);
         popupContainer.setAttribute('name', popupName);
@@ -65,6 +69,7 @@ const dismissPopup = (popupName) =>{
     if (document.querySelector(`page-popup-container[name='${popupName}']`)){
         let popup = document.querySelector(`page-popup-container[name='${popupName}']`).querySelector(`page-popup`);
         let popupType = popup.getAttribute('type');
+        let popupContainer = popup.parentNode;
         switch (popupType){
             case 'expand':
                 popup.animate(

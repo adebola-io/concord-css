@@ -1,3 +1,38 @@
+const createBoardElement = () => {
+    if (document.querySelector("page-board")){
+        document.querySelectorAll("page-board").forEach((streamlineBoard)=>{
+            if (streamlineBoard.getAttribute('height')) {
+            streamlineBoard.style.height = streamlineBoard.getAttribute('height')} else if (window.innerHeight<900){
+                streamlineBoard.style.height = (window.innerHeight-48).toString()+'px';
+            }
+            let streamlineBoardContainer = document.createElement('div');
+            streamlineBoardContainer.classList.value = 'w100 h200'
+            let streamlineBoardBackground = document.createElement('div');
+            streamlineBoardBackground.classList.value = "h50 w100 "+(streamlineBoard.getAttribute("background-class")?streamlineBoard.getAttribute("background-class"):"");
+            streamlineBoardBackground.style.backgroundImage = streamlineBoard.getAttribute("background-image")?streamlineBoard.getAttribute("background-image"):"";
+            streamlineBoardBackground.style.backgroundColor = streamlineBoard.getAttribute("background-color")?streamlineBoard.getAttribute("background-color"):"";
+            let streamlineBoardContent = document.createElement('div');
+            streamlineBoardContent.classList.value = 'w-initial h50 move-up '+streamlineBoard.classList.value;
+            streamlineBoard.classList.value = "overflow-h";
+            streamlineBoardContent.innerHTML = streamlineBoard.innerHTML; 
+            streamlineBoardContainer.append(streamlineBoardBackground); 
+            streamlineBoardContainer.append(streamlineBoardContent);
+            while (streamlineBoard.firstChild) {
+                streamlineBoard.removeChild(streamlineBoard.firstChild)
+            };
+            streamlineBoard.append(streamlineBoardContainer);
+        })
+    }
+}
+const createCarousels = () => {
+    if (document.querySelector('page-carousel')){
+        document.querySelectorAll('page-carousel').forEach(carousel=>{
+            if (carousel.getAttribute('height')){
+                carousel.style.height = carousel.getAttribute('height');
+            }
+        })
+    }
+}
 const addDropDown = () => {
         if (document.querySelector("page-header") && document.querySelector("page-header").querySelector(".drop-down-item")){
                 document.querySelectorAll("page-header").forEach(streamlineHeader=>{
@@ -159,3 +194,203 @@ const addDropDown = () => {
                 })
             }
     }
+const addHoverClasses = () => {
+        if (document.querySelector('[hover-class]')) {
+            document.querySelectorAll('[hover-class]').forEach(element=>{
+                let originalClassListValue = element.classList.value;
+                element.addEventListener('mouseover', ()=>{
+                    element.classList.value = element.classList.value+' '+element.getAttribute('hover-class');  
+                    this.addVibration();
+                })
+                element.addEventListener('mouseout', ()=>{
+                    element.classList.value = originalClassListValue;
+                })
+            })
+        }
+    }
+
+const triggerPopup = (popupName) => {
+    if (document.querySelector(`page-popup[name='${popupName}']`)){
+        let popup = document.querySelector(`page-popup[name='${popupName}']`).cloneNode(true);
+        popup.classList.value = `block ${popup.classList.value}`;
+        if (popup.innerText === '') {
+            popup.innerText = popupName;
+            popup.style.color = '#717171';
+            popup.classList.value = `fc fnt-11pt txt-uppercase ${popup.classList.value}`;
+        }
+        let popupContainer = document.createElement('page-popup-container');
+        popupContainer.append(popup);
+        popupContainer.setAttribute('name', popupName);
+        document.body.append(popupContainer);
+
+        // Usability of attribute 'type'
+        let popupType = popup.getAttribute('type');
+        switch (popupType){
+            case 'expand':
+                popup.animate(
+                    [
+                        {transform: 'scale(0.8)'},
+                        {transform: 'scale(1.2)'},
+                        {transform: 'scale(1)'},
+                    ],
+                    {duration: 300, iterations: 1, fill: "forwards"}
+                )
+                popupContainer.addEventListener('click', (e)=>{
+                    if (!(e.target === popup)){
+                            popup.animate(
+                                [
+                                    {transform: 'scale(1)'},
+                                    {transform: 'scale(1.2)'},
+                                    {opacity: '0', transform: 'scale(0.8)'}
+                                ],
+                                {duration: 300, iterations: 1, fill: "forwards"}
+                            )   
+                        setTimeout(()=>{popupContainer.remove()}, 300);
+                    }
+                })
+                break;
+            case 'fade':
+                default:
+                popup.animate(
+                    [
+                        {transform: 'scale(1.2)', filter: 'opacity(0)'},
+                        {transform: 'scale(1)', filter: 'opacity(1)'}
+                    ],
+                    {duration: 200, iterations: 1, fill: "forwards"}
+                )
+                popupContainer.addEventListener('click', (e)=>{
+                    if (!(e.target === popup)){
+                            popup.animate(
+                                [
+                                    {transform: 'scale(1)', filter: 'opacity(1)'},
+                                    {transform: 'scale(1.2)', filter: 'opacity(0)'}
+                                ],
+                                {duration: 200, iterations: 1, fill: "forwards"}
+                            )   
+                        setTimeout(()=>{popupContainer.remove()}, 300);
+                    }
+                })
+                break;
+        }
+    } else {
+        console.error(`The popup ${popupName} does not exist.`)
+    }
+}
+const dismissPopup = (popupName) =>{
+    if (document.querySelector(`page-popup-container[name='${popupName}']`)){
+        let popup = document.querySelector(`page-popup-container[name='${popupName}']`).querySelector(`page-popup`);
+        let popupType = popup.getAttribute('type');
+        let popupContainer = popup.parentNode;
+        switch (popupType){
+            case 'expand':
+                popup.animate(
+                    [
+                        {transform: 'scale(1)'},
+                        {transform: 'scale(1.2)'},
+                        {opacity: '0', transform: 'scale(0.8)'}
+                    ],
+                        {duration: 300, iterations: 1, fill: "forwards"}
+                )   
+                setTimeout(()=>{popupContainer.remove()}, 300);
+                break;
+            case 'fade':
+                default:
+                popup.animate(
+                    [
+                        {transform: 'scale(1)', filter: 'opacity(1)'},
+                        {transform: 'scale(1.2)', filter: 'opacity(0)'}
+                    ],
+                    {duration: 200, iterations: 1, fill: "forwards"}
+                )   
+                    setTimeout(()=>{popupContainer.remove()}, 300);
+                break;
+        }
+    } else console.error(`The popup ${popupName} is not open.`)
+}
+
+// Usability of attribute 'stay'
+const stickPopup = () => {
+     if (document.querySelector(`page-popup[stay]`)){
+        let popup = document.querySelector(`page-popup[stay]`).cloneNode(true);
+        let popupName = popup.getAttribute('name');
+        popup.classList.value = `block ${popup.classList.value}`;
+        if (popup.innerText === '') {popup.innerText = ''}
+        let popupContainer = document.createElement('page-popup-container');
+        popupContainer.append(popup);
+        popupContainer.setAttribute('name', popupName);
+        document.body.append(popupContainer);
+
+        // Usability of attribute 'type'
+        let popupType = popup.getAttribute('type');
+        switch (popupType){
+            case 'expand':
+                popup.animate(
+                    [
+                        {transform: 'scale(0.8)'},
+                        {transform: 'scale(1.2)'},
+                        {transform: 'scale(1)'},
+                    ],
+                    {duration: 300, iterations: 1, fill: "forwards"}
+                )
+                break;
+            case 'fade':
+                default:
+                popup.animate(
+                    [
+                        {transform: 'scale(1.2)', filter: 'opacity(0)'},
+                        {transform: 'scale(1)', filter: 'opacity(1)'}
+                    ],
+                    {duration: 200, iterations: 1, fill: "forwards"}
+                )
+                break;
+        }
+    }
+}
+const createSearchIcon = () => {
+      if (document.querySelector('search-icon')){
+          document.querySelectorAll('search-icon').forEach(searchIcon=>{
+            let iconColor = searchIcon.getAttribute('color');
+            let iconSize = searchIcon.getAttribute('size');
+            if (iconColor){
+               searchIcon.style.setProperty('--searchIconColor', iconColor);
+            } else {
+              let inheritedColor = window.getComputedStyle(searchIcon.parentNode, null).getPropertyValue('color');
+              searchIcon.style.setProperty('--searchIconColor', inheritedColor);
+            }
+            if (iconSize){
+                searchIcon.style.height = searchIcon.style.width = iconSize;
+            }
+          })
+      }  
+    }
+ const setThemeColor = (color) => {
+        if (document.querySelector('meta[name="theme-color"]')) {
+            document.querySelector('meta[name="theme-color"]').remove();
+        }
+        let metaTag = document.createElement('meta');
+        metaTag.name = "theme-color";
+        metaTag.content = color;
+        document.querySelector('head').append(metaTag);
+    }
+
+class StreamlineUI {
+    triggerPopup = (popup) => {
+        triggerPopup(popup);
+    }
+    dismissPopup = (popup) =>{
+        dismissPopup(popup);
+    }
+    runAll () {
+        createBoardElement();
+        addDropDown();
+        addHoverClasses();
+        createSearchIcon();
+        setThemeColor();
+        // addVibration();
+        stickPopup();
+    }
+}
+
+var Streamline = new StreamlineUI();
+Streamline.runAll();
+window.Streamline = Streamline;
