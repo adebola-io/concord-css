@@ -89,7 +89,22 @@
     @extend .flex;
     align-items: center;
 }
-
+.fsax {
+    @extend .flex;
+    justify-content: space-around;
+}
+.fsbx {
+    @extend .flex;
+    justify-content: space-between;
+}
+.fsby {
+    @extend .flex;
+    align-items: space-between;
+}
+.fsay {
+    @extend .flex;
+    align-items: space-around;
+}
 .fc {
     @extend .fcx, .fcy;
 }

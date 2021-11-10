@@ -1,10 +1,6 @@
 const createBoardElement = () => {
     if (document.querySelector("page-board")){
         document.querySelectorAll("page-board").forEach((streamlineBoard)=>{
-            if (streamlineBoard.getAttribute('height')) {
-            streamlineBoard.style.height = streamlineBoard.getAttribute('height')} else if (window.innerHeight<900){
-                streamlineBoard.style.height = (window.innerHeight-48).toString()+'px';
-            }
             let streamlineBoardContainer = document.createElement('div');
             streamlineBoardContainer.classList.value = 'w100 h200'
             let streamlineBoardBackground = document.createElement('div');
@@ -245,7 +241,7 @@ const triggerPopup = (popupName) => {
                         {transform: 'scale(1.2)'},
                         {transform: 'scale(1)'},
                     ],
-                    {duration: 300, iterations: 1, fill: "forwards"}
+                    {duration: 200, iterations: 1, fill: "forwards"}
                 )
                 popupContainer.addEventListener('click', (e)=>{
                     if (!(e.target === popup)){
@@ -255,9 +251,9 @@ const triggerPopup = (popupName) => {
                                     {transform: 'scale(1.2)'},
                                     {opacity: '0', transform: 'scale(0.8)'}
                                 ],
-                                {duration: 300, iterations: 1, fill: "forwards"}
+                                {duration: 200, iterations: 1, fill: "forwards"}
                             )   
-                        setTimeout(()=>{popupContainer.remove()}, 300);
+                        setTimeout(()=>{popupContainer.remove()}, 200);
                     }
                 })
                 break;
@@ -278,7 +274,7 @@ const triggerPopup = (popupName) => {
                                 ],
                                 {duration: 200, iterations: 1, fill: "forwards"}
                             )   
-                        setTimeout(()=>{popupContainer.remove()}, 300);
+                        setTimeout(()=>{popupContainer.remove()}, 200);
                     }
                 })
                 break;
@@ -297,7 +293,7 @@ const triggerPopup = (popupName) => {
                         {transform: 'scale(1)',  opacity: '0'},
                         {transform: 'scale(1)', opacity: '1'}
                     ],
-                    {duration: 300, iterations: 1, fill: "forwards"}
+                    {duration: 200, iterations: 1, fill: "forwards"}
                 )
                 popupContainer.addEventListener('click', (e)=>{
                     if (!(e.target === popup)){
@@ -306,9 +302,9 @@ const triggerPopup = (popupName) => {
                                     {opacity: '1'},
                                     {opacity: '0'},
                                 ],
-                                {duration: 300, iterations: 1, fill: "forwards"}
+                                {duration: 200, iterations: 1, fill: "forwards"}
                             )   
-                        setTimeout(()=>{popupContainer.remove()}, 300);
+                        setTimeout(()=>{popupContainer.remove()}, 200);
                     }
                 })
                 break;
@@ -330,9 +326,9 @@ const dismissPopup = (popupName) =>{
                         {transform: 'scale(1.2)'},
                         {opacity: '0', transform: 'scale(0.8)'}
                     ],
-                        {duration: 300, iterations: 1, fill: "forwards"}
+                        {duration: 200, iterations: 1, fill: "forwards"}
                 )   
-                setTimeout(()=>{popupContainer.remove()}, 300);
+                setTimeout(()=>{popupContainer.remove()}, 200);
                 break;
             case 'condense-in':
                 popup.animate(
@@ -342,7 +338,7 @@ const dismissPopup = (popupName) =>{
                     ],
                     {duration: 200, iterations: 1, fill: "forwards"}
                 )   
-                setTimeout(()=>{popupContainer.remove()}, 300);
+                setTimeout(()=>{popupContainer.remove()}, 200);
                 break;
             case 'fade':
                 default:
@@ -351,9 +347,9 @@ const dismissPopup = (popupName) =>{
                         {opacity: '1'},
                         {opacity: '0'},
                     ],
-                    {duration: 300, iterations: 1, fill: "forwards"}
+                    {duration: 200, iterations: 1, fill: "forwards"}
                 )   
-                setTimeout(()=>{popupContainer.remove()}, 300);
+                setTimeout(()=>{popupContainer.remove()}, 200);
                 break;
             case 'none':
                 popupContainer.remove();
@@ -384,7 +380,7 @@ const stickPopup = () => {
                         {transform: 'scale(1.2)'},
                         {transform: 'scale(1)'},
                     ],
-                    {duration: 300, iterations: 1, fill: "forwards"}
+                    {duration: 200, iterations: 1, fill: "forwards"}
                 )
                 break;
             case 'fade':
@@ -445,6 +441,7 @@ class StreamlineUI {
         setSecondaryColor(color);
     };
     runAll () {
+        // addAnimations();
         createBoardElement();
         addDropDown();
         addHoverClasses();

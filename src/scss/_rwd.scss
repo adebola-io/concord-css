@@ -1,5 +1,6 @@
 
 /* Responsive Design */
+// Huawei Y5 2019
 @media (max-width: 720px) {
   drop-down {
     display: block;
@@ -58,5 +59,24 @@
     padding: 0 4%;
     width: 100%;
     display: flex;
+  }
+}
+
+// iPhone X
+@media (max-width: 375px) {
+  page-header {
+    height: 55px;
+  }
+  page-popup {
+    height: 250px;
+    width: 310px;
+  }
+  page-board {
+    height: 764px;
+  }
+  .button-small,
+  .button-large,
+  .button-medium {
+    border-radius: 8px;
   }
 }

@@ -1,0 +1,9 @@
+.grid-3x2 {
+    grid-template-columns: 33.3% 33.3% 33.3%;
+    grid-template-rows: 50% 50%;
+}
+.grid-3x2-item {
+    height: 55%;
+    width: 81%;
+    margin: 10%;
+}

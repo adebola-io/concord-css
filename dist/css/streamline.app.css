@@ -1,9 +1,23 @@
+.vanish-appear {
+  animation: vanish-appear 800ms;
+}
+
+@keyframes vanish-appear {
+  0% {
+    opacity: 0;
+    transform: translateY(10%);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0%);
+  }
+}
 page-header {
   display: flex;
   background: lightblue;
   align-items: center;
   padding-left: 2%;
-  width: 96%;
+  width: 100%;
   padding-right: 2%;
   position: fixed;
   top: 0;
@@ -316,6 +330,7 @@ page-footer > copy-right {
 .header-profile-pic {
   height: 36px;
   width: 36px;
+  border-radius: 50%;
   background: lightblue;
 }
 
@@ -433,7 +448,7 @@ form > input.center-search:focus {
   display: none;
 }
 
-.flex, .fstretch-y, .spce-between-x, .fcol, .fey, .fe, .fex, .fcy, .fc, .fcx, .frow-rvrse, .frow, .fwrap {
+.flex, .fstretch-y, .spce-between-x, .fcol, .fey, .fe, .fex, .fsay, .fsby, .fsbx, .fsax, .fcy, .fc, .fcx, .frow-rvrse, .frow, .fwrap {
   display: flex;
 }
 
@@ -455,6 +470,22 @@ form > input.center-search:focus {
 
 .fcy, .fc {
   align-items: center;
+}
+
+.fsax {
+  justify-content: space-around;
+}
+
+.fsbx {
+  justify-content: space-between;
+}
+
+.fsby {
+  align-items: space-between;
+}
+
+.fsay {
+  align-items: space-around;
 }
 
 .fex, .fe {
@@ -856,6 +887,26 @@ page-header .header-drop-down nav {
     padding: 0 4%;
     width: 100%;
     display: flex;
+  }
+}
+@media (max-width: 375px) {
+  page-header {
+    height: 55px;
+  }
+
+  page-popup {
+    height: 250px;
+    width: 310px;
+  }
+
+  page-board {
+    height: 764px;
+  }
+
+  .button-small,
+.button-large,
+.button-medium {
+    border-radius: 8px;
   }
 }
 .m0 {
@@ -2434,6 +2485,22 @@ page-header .header-drop-down nav {
   border-color: darkgreen;
 }
 
+.txt-themed {
+  color: var(--themeColor);
+}
+
+.placeholder-color-themed::placeholder {
+  color: var(--themeColor);
+}
+
+.bg-themed {
+  background-color: var(--themeColor);
+}
+
+.brdr-themed {
+  border-color: var(--themeColor);
+}
+
 .txt-lightblue {
   color: blue;
 }
@@ -2451,19 +2518,35 @@ page-header .header-drop-down nav {
 }
 
 .txt-blue {
-  color: blue;
+  color: #0000ff;
 }
 
 .placeholder-color-blue::placeholder {
-  color: blue;
+  color: #0000ff;
 }
 
 .bg-blue {
-  background-color: blue;
+  background-color: #0000ff;
 }
 
 .brdr-blue {
-  border-color: blue;
+  border-color: #0000ff;
+}
+
+.txt-nickelblue {
+  color: #2a2afd;
+}
+
+.placeholder-color-nickelblue::placeholder {
+  color: #2a2afd;
+}
+
+.bg-nickelblue {
+  background-color: #2a2afd;
+}
+
+.brdr-nickelblue {
+  border-color: #2a2afd;
 }
 
 .txt-darkblue {
@@ -2728,22 +2811,22 @@ page-header .header-drop-down nav {
 }
 
 .brdr-left-slim {
-  border-left-width: 2;
+  border-left-width: 2px;
   border-left-style: solid;
 }
 
 .brdr-right-slim {
-  border-right-width: 2;
+  border-right-width: 2px;
   border-right-style: solid;
 }
 
 .brdr-top-slim {
-  border-top-width: 2;
+  border-top-width: 2px;
   border-top-style: solid;
 }
 
 .brdr-bottom-slim {
-  border-bottom-width: 2;
+  border-bottom-width: 2px;
   border-bottom-style: solid;
 }
 
@@ -2753,22 +2836,22 @@ page-header .header-drop-down nav {
 }
 
 .brdr-left-thin {
-  border-left-width: 1;
+  border-left-width: 1px;
   border-left-style: solid;
 }
 
 .brdr-right-thin {
-  border-right-width: 1;
+  border-right-width: 1px;
   border-right-style: solid;
 }
 
 .brdr-top-thin {
-  border-top-width: 1;
+  border-top-width: 1px;
   border-top-style: solid;
 }
 
 .brdr-bottom-thin {
-  border-bottom-width: 1;
+  border-bottom-width: 1px;
   border-bottom-style: solid;
 }
 
@@ -2778,22 +2861,22 @@ page-header .header-drop-down nav {
 }
 
 .brdr-left-thick {
-  border-left-width: 4;
+  border-left-width: 4px;
   border-left-style: solid;
 }
 
 .brdr-right-thick {
-  border-right-width: 4;
+  border-right-width: 4px;
   border-right-style: solid;
 }
 
 .brdr-top-thick {
-  border-top-width: 4;
+  border-top-width: 4px;
   border-top-style: solid;
 }
 
 .brdr-bottom-thick {
-  border-bottom-width: 4;
+  border-bottom-width: 4px;
   border-bottom-style: solid;
 }
 
@@ -2803,22 +2886,22 @@ page-header .header-drop-down nav {
 }
 
 .brdr-left-none {
-  border-left-width: 0;
+  border-left-width: 0px;
   border-left-style: solid;
 }
 
 .brdr-right-none {
-  border-right-width: 0;
+  border-right-width: 0px;
   border-right-style: solid;
 }
 
 .brdr-top-none {
-  border-top-width: 0;
+  border-top-width: 0px;
   border-top-style: solid;
 }
 
 .brdr-bottom-none {
-  border-bottom-width: 0;
+  border-bottom-width: 0px;
   border-bottom-style: solid;
 }
 
