@@ -1,6 +1,6 @@
 "use strict";
 exports.__esModule = true;
-exports.fillElement = exports.fillWindow = exports.doNothing = exports.dataStructures = void 0;
+exports.Concord = exports.fillElement = exports.fillWindow = exports.doNothing = exports.dataStructures = void 0;
 /**
  * A set of useful ways to organize information in a system.
  */
@@ -259,4 +259,4 @@ var ConcordClass = /** @class */ (function () {
     }
     return ConcordClass;
 }());
-var Concord = new ConcordClass();
+exports.Concord = new ConcordClass();

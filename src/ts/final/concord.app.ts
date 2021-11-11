@@ -210,4 +210,4 @@ class ConcordClass {
     fillElement = fillElement;
 }
 
-var Concord = new ConcordClass();
+export const Concord = new ConcordClass();
