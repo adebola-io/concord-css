@@ -21,21 +21,27 @@ exports.stdout = (process) => {
             console.clear();
             console.log("SCSS Files Compiled Successfully.".green)
             console.log("");
-            console.log("Concatenating JS Files with Gulp...".brightRed);
+            console.log("Concatenating TS Files with Gulp...".brightRed);
             break;
         case 3:
             console.clear();
-            console.log("Gulp Concat Successful.".green);
+            console.log("Typescript Files Concatenated.".blue);
+            console.log("");
+            console.log("Compiling to JS...".brightMagenta);
+            break;
+        case 4:
+            console.clear();
+            console.log("JS Files Compiled Successfully.".green);
             console.log("");
             console.log("Minifying CSS...".brightBlue);
             break;
-        case 4:
+        case 5:
             console.clear();
             console.log("CSS Minified.".green);
             console.log("");
             console.log("Minifying JS...".yellow);
             break;
-        case 5:
+        case 6:
             console.clear();
             console.log("Your build was successful.".green);
             console.log("");

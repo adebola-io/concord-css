@@ -1,21 +1,23 @@
 {
-  "name": "streamline",
+  "name": "concord",
   "version": "1.0.0",
   "private": true,
-  "description": "A CSS and Javascript framework for custom sematic HTML and UI design.",
+  "description": "A CSS framework and JS library.",
   "main": "index.js",
   "scripts": {
     "compile-css-message": "node -e \"require('./scripts/build.js').stdout(1)",
-    "compile-css": "sass ./src/scss/streamline.app.scss:./dist/css/streamline.app.css",
-    "compile-js-message": "node -e \"require('./scripts/build.js').stdout(2)",
-    "compile-js": "gulp scripts",
-    "minify-css-message": "node -e \"require('./scripts/build.js').stdout(3)",
-    "minify-css": "minify ./dist/css/streamline.app.css > ./dist/css/streamline.app.min.css",
-    "minify-js-message": "node -e \"require('./scripts/build.js').stdout(4)",
-    "minify-js": "minify ./dist/js/streamline.app.js > ./dist/js/streamline.app.min.js",
-    "final-build-message": "node -e \"require('./scripts/build.js').stdout(5)",
-    "watch-style": "sass --watch ./src/scss/streamline.app.scss:./dist/css/streamline.app.css",
-    "build": "npm run compile-css-message && npm run compile-css && npm run compile-js-message && npm run compile-js && npm run minify-css-message && npm run minify-css && npm run minify-js-message && npm run minify-js && npm run final-build-message"
+    "compile-css": "sass ./src/scss/concord.app.scss:./dist/css/concord.app.css",
+    "concat-ts-message": "node -e \"require('./scripts/build.js').stdout(2)",
+    "concat-ts": "rm -f src/ts/final/concord.app.ts && gulp scripts",
+    "compile-js-message": "node -e \"require('./scripts/build.js').stdout(3)",
+    "compile-js": "tsc src/ts/final/concord.app.ts --outDir dist/js",
+    "minify-css-message": "node -e \"require('./scripts/build.js').stdout(4)",
+    "minify-css": "sass ./src/scss/concord.app.scss:./dist/css/concord.app.min.css --style compressed",
+    "minify-js-message": "node -e \"require('./scripts/build.js').stdout(5)",
+    "minify-js": "minify ./dist/js/concord.app.js > ./dist/js/concord.app.min.js",
+    "final-build-message": "node -e \"require('./scripts/build.js').stdout(6)",
+    "watch-style": "sass --watch ./src/scss/concord.app.scss:./dist/css/concord.app.css",
+    "build": "npm run compile-css-message && npm run compile-css && npm run concat-ts-message && npm run concat-ts && npm run compile-js-message && npm run compile-js && npm run minify-css-message && npm run minify-css && npm run minify-js-message && npm run minify-js && npm run final-build-message"
   },
   "keywords": [
     "CSS",
@@ -38,10 +40,10 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/Rael-x/streamline.git"
+    "url": "git+https://github.com/Rael-x/concord.git"
   },
   "bugs": {
-    "url": "https://github.com/Rael-x/streamline/issues"
+    "url": "https://github.com/Rael-x/concord/issues"
   },
-  "homepage": "https://github.com/Rael-x/streamline#readme"
+  "homepage": "https://github.com/Rael-x/concord#readme"
 }

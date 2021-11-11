@@ -1,7 +1,7 @@
 const gulpConcat = require("gulp-concat");
 const gulp = require("gulp");
 
-var jsFiles = 'src/js/**.js', jsDest = 'dist/js/'
+var jsFiles = 'src/ts/**', jsDest = 'src/ts/final/'
 gulp.task('scripts', function () {
-    return gulp.src(jsFiles).pipe(gulpConcat('streamline.app.js')).pipe(gulp.dest(jsDest));
+    return gulp.src(jsFiles).pipe(gulpConcat('concord.app.ts', {overwrite: true})).pipe(gulp.dest(jsDest));
 });
