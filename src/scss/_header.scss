@@ -1,12 +1,16 @@
 .page-header {
     position: fixed;
     display: flex;
+    z-index: 10;
     align-items: center;
     top: 0;
     width: 100%;
     padding-left: 2%;
     padding-right: 2%;
     height: 3.5em;
+}
+.page-header.header-reduce {
+    height: 3em;
 }
 .comp-logo {
     height: 80%;
@@ -46,7 +50,7 @@
     border-style: solid;
     border-color: var(--themeColor);
 }
-@media (max-width: 425px) {
+@media (max-width: 512px) {
     .page-header-button {
         padding-top: 1.5%;
         padding-bottom: 1.5%;

@@ -1,0 +1,22 @@
+.page-main {
+    margin-top: 55px;
+}
+.page-board {
+    height: 592px;
+    overflow: hidden;
+}
+.page-board-container {
+    display: flex;
+    flex-direction: column;
+    height: 200%;
+    width: 100%;
+}
+.page-board-overlay {
+    width: 100%;
+    height: 50%;
+}
+.page-board-content {
+    width: 100%;
+    height: 50%;
+    transform: translateY(-100%);
+}
