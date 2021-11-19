@@ -196,7 +196,7 @@ $gradients: (
 }
 
 // Fonts
-$fonts: (9, 10, 11, 12, 13, 14, 15, 16, 17, 20, 25, 35, 50);
+$fonts: (9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24 25, 30, 35, 36, 37, 40, 42, 43, 44 45, 50, 55);
 
 @each $font in $fonts {
     .fnt-#{$font}pt {
@@ -208,8 +208,9 @@ $fonts: (9, 10, 11, 12, 13, 14, 15, 16, 17, 20, 25, 35, 50);
 }
 
 // Sizes
-$sizes: (0, 15, 20, 35, 45, 50,  60, 75, 85, 90, 92, 95, 96, 97, 98, 99, 100, 200);
+$sizes: (0, 5, 10, 12, 13, 14, 15, 20, 35, 40, 45, 50, 60, 75, 85, 90, 92, 95, 96, 97, 98, 99, 100, 120, 150, 200, 300, 400, 500,);
 $autoSizes: (initial, fit-content, inherit);
+$specialSizes: (('half', 50), ('third', 33.3333),('quarter', 25), ('quint', 20));
 @each $size in $sizes{
     .w#{$size}{
         width: #{$size}+'%';
@@ -221,6 +222,12 @@ $autoSizes: (initial, fit-content, inherit);
         width: #{$size}+'%';
         height: #{$size}+'%';
     }
+    .up-#{$size}{
+        transform: translateY(-#{$size}+'%');
+    }
+    .down-#{$size} {
+        transform: translateY(#{$size}+'%');
+    }
 }
 @each $autoSize in $autoSizes {
         .w-#{$autoSize} {
@@ -231,7 +238,14 @@ $autoSizes: (initial, fit-content, inherit);
             height: #{$autoSize};
         }
 }
-
+@each $specialSize in $specialSizes {
+    .w-#{nth($specialSize, 1)} {
+        width: #{nth($specialSize, 2)}+'%';
+    }
+    .h-#{nth($specialSize, 1)} {
+        height: #{nth($specialSize, 2)}+'%';
+    }
+}
 //Transitions 
 $times: (250, 300, 450, 600, 900);
 @each $time in $times {
