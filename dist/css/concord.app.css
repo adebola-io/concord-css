@@ -1,6 +1,6 @@
 /* Error: expected selector.
  *     ,
- * 202 |     .fnt-24 25pt{
+ * 202 |     .fnt-44 45pt{
  *     |             ^
  *     '
  *   src\scss\_config.scss 202:13   @use
@@ -14,5 +14,5 @@ body::before {
   padding: 1em;
   margin-bottom: 1em;
   border-bottom: 2px solid black;
-  content: "Error: expected selector.\a     \2577 \a 202 \2502      .fnt-24 25pt{\d\a     \2502              ^\a     \2575 \a   src\\scss\\_config.scss 202:13   @use\a   src\\scss\\concord.app.scss 6:1  root stylesheet";
+  content: "Error: expected selector.\a     \2577 \a 202 \2502      .fnt-44 45pt{\d\a     \2502              ^\a     \2575 \a   src\\scss\\_config.scss 202:13   @use\a   src\\scss\\concord.app.scss 6:1  root stylesheet";
 }
