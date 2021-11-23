@@ -1,33 +1,23 @@
 {
-  "name": "concord",
-  "version": "1.0.0",
-  "private": true,
-  "description": "A CSS framework and JS library.",
+  "name": "concord-css",
+  "version": "1.0.1",
+  "description": "A CSS framework.",
   "main": "index.js",
   "scripts": {
-    "compile-css-message": "node -e \"require('./scripts/build.js').stdout(1)",
-    "compile-min": "sass ./src/scss/concord.app.scss:./dist/concord.app.min.css --style compressed",
-    "watch-style": "sass --watch ./src/scss/concord.app.scss:./dist/concord.app.css",
-    "build": "npm run compile-css-message && sass ./src/scss/concord.app.scss:./dist/concord.app.css"
+    "compile-min": "sass ./src/scss/concord.app.scss:./dist/concord.min.css --style compressed",
+    "watch-style": "sass --watch ./src/scss/concord.app.scss:./dist/concord.css",
+    "build": "sass ./src/scss/concord.app.scss:./dist/concord.css"
   },
   "keywords": [
     "CSS",
     "Framework",
-    "Javascript",
     "SCSS"
   ],
-  "author": "Adebola Akomolafe",
+  "author": "adebolaXYZ",
   "license": "ISC",
-  "dependencies": {
-    "colors": "^1.4.0",
-    "gulp": "^4.0.2",
-    "minify": "^8.0.3",
-    "sass": "^1.43.3",
-    "scss": "^0.2.4"
-  },
+  "dependencies": {},
   "devDependencies": {
-    "gulp-concat": "^2.6.1",
-    "typescript": "^4.3.5"
+    "sass": "^1.43.3"
   },
   "repository": {
     "type": "git",
