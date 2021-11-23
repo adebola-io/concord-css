@@ -5,7 +5,7 @@ import './App.css'
 const App = () => {
   return (
     <div id='app' className='flex cx cy'>
-      <SidebarBtn />
+      <SidebarBtn type='hamburger'/>
     </div>
   )
 }
