@@ -1,0 +1,19 @@
+html, body, #root, #app {
+    height: 100%;
+    width: 100%;
+    margin: 0;
+    background: blue;
+}
+.flex {
+    display: flex;
+}
+.cx {
+    justify-content: center;
+}
+.cy {
+    align-items: center;
+}
+.horizontalLine{
+    margin: 0;
+    border-top: 0.9px;
+}

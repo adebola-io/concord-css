@@ -1,0 +1,19 @@
+.concord-page-sidebar-button {
+    display: flex;
+    border: none;
+    border-radius: 5px;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    cursor: pointer;
+    height: 128px;
+    width: 128px;
+    background: white;
+}
+.concord-sidebar-button-bar {
+    height: 8%;
+    width: 74%;
+    margin: 7% 0;
+    background: blue;
+    border-radius: 3em;
+}

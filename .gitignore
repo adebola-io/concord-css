@@ -1,2 +1,9 @@
 /node_modules/
-/img/
+
+# react
+/react/node_modules
+/react/public
+/react/package.json
+/react/package-lock.json
+/react/start.exe
+/react/README.md
